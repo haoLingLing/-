@@ -10,15 +10,15 @@
 * @param {number[]} nums
 * @return {number}
 */
-// var removeDuplicates = function (nums) {
-//   let i=nums.length;
-//   while(i>0){
-//     if (nums[i--] == nums[i]){
-//       nums.splice(i,1)
-//     }
-//   }
-//   return nums.length;
-// };
+var removeDuplicates = function (nums) {
+  let i=nums.length;
+  while(i>0){
+    if (nums[i--] == nums[i]){
+      nums.splice(i,1)
+    }
+  }
+  return nums.length;
+};
 
 // 以下的错误，原因是需要改变原数组
 // var removeDuplicates = function (nums) {
@@ -37,37 +37,37 @@
  如果 nums[j] !=nums[i] 必须把nums[j]的值复制给nums[i],然后递增i
  */
 
-// var removeDuplicates = function (nums) {
-//   if (nums.length==0) return 0;
-//   let i=0;
-//   for(let j=0;j<nums.length;j++){
-//     if(nums[j]!==nums[i]){
-//       i++;
-//       nums[i]=nums[j];
-//     }
-//   }
-//   return i+1;
-// };
+var removeDuplicates = function (nums) {
+  if (nums.length==0) return 0;
+  let i=0;
+  for(let j=0;j<nums.length;j++){
+    if(nums[j]!==nums[i]){
+      i++;
+      nums[i]=nums[j];
+    }
+  }
+  return i+1;
+};
 
-// var removeDuplicates = function (nums) {
-//   if (nums.length == 0) return 0;
-//   let i = 0,j=0;
-//   while(j<nums.length){
-//     if (nums[j++] !== nums[i]) {
-//       i++;
-//       nums[i] = nums[j];
-//     }
-//   }
-//   return i + 1;
-// };
-
-
+var removeDuplicates = function (nums) {
+  if (nums.length == 0) return 0;
+  let i = 0,j=0;
+  while(j<nums.length){
+    if (nums[j++] !== nums[i]) {
+      i++;
+      nums[i] = nums[j];
+    }
+  }
+  return i + 1;
+};
 
 
-// const nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4,];
-// console.time();
-// console.log(removeDuplicates(nums));
-// console.timeEnd()
+
+
+const nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4,];
+console.time();
+console.log(removeDuplicates(nums));
+console.timeEnd()
 
 
 /**
