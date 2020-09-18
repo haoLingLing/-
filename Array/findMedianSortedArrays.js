@@ -25,10 +25,10 @@ nums2 = [3, 4]
  * @return {number}
  */
 
- /**
-  方法一： 使用归并排序的方式，合并两个数组，得到一个大的有序数组，中间的位置的元素，即为中位数
-  时间复杂度O(m+n)
-  空间复杂度O(m+n)
+/**
+ 方法一： 使用归并排序的方式，合并两个数组，得到一个大的有序数组，中间的位置的元素，即为中位数
+ 时间复杂度O(m+n)
+ 空间复杂度O(m+n)
 */
 
 // var findMedianSortedArrays = function (nums1, nums2) {
@@ -48,26 +48,42 @@ nums2 = [3, 4]
  方法二：仅仅需要K大的元素，不需要排序这么昂贵的操作，可以使用一个计数器，记录当前已经找到的第m大的元素。同时使用两个指针pA和pB,分别指向A和B数组的第一个元素，使用类似merge sort 的原理，如果数组A当前元素小，那么pA++，同时m++；如果数组B当前元素小，那么pB++。m++，最终当m等于K
  时间复杂度O(m+n)
  空间复杂度O(1)
+
+ 如果知道奇数 （len+1）/2
+ 如果是偶数 len/2 len/2+1
 */
+
 var findMedianSortedArrays = function (nums1, nums2) {
-  debugger;
-  let pA=0, pB=0,m=0,num=null;
-  const allNumsLength = nums1.length + nums2.length;
-  let k = ~~(allNumsLength /2);
-  while (m<=k){
-    if (nums1[pA] < nums2[pB] ){
-      num = nums1[pA]
-      pA++;
-    }else{
-      num = nums1[pB];
-      pB++;
+  const m = nums1.length;
+  const n = nums2.length;
+  const len = m + n;
+  let pA = 0, pB = 0, index = 0;
+  let left = null, right = null;
+  let k = len / 2;
+  while (index <= k) {
+    left = right;
+    // 边界需要处理好
+    if (pA < m && (pB >= n || nums1[pA] <= nums2[pB])) {
+      right = nums1[pA++]
+    } else {
+      right = nums2[pB++];
     }
-    m++;
+    index++;
   }
-  console.log(num)
+  if ((len & 1) == 0) {
+    return (left + right) / 2
+  } else {
+    return right;
+  }
 };
 
-const nums1=[1,2],nums2=[3];
+/**
+ 方法三
+
+ */
+
+const nums1 = [], nums2 = [0, 1, 2, 3];
 console.log(findMedianSortedArrays(nums1, nums2));
+
 
 
