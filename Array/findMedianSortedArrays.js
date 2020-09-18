@@ -88,3 +88,9 @@ console.log(findMedianSortedArrays(nums1, nums2));
 
 const nums11 = [], nums22 = [0, 1, 2, 3];
 console.log(findMedianSortedArrays(nums11, nums22));
+
+const nums13 = [], nums23 = [0, 1, 2, 3];
+console.log(findMedianSortedArrays(nums13, nums23));
+
+const nums14 = [], nums234= [0, 1, 2, 3];
+console.log(findMedianSortedArrays(nums14, nums24));
