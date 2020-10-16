@@ -63,18 +63,6 @@ const threeSum = function (nums) {
 // 排序+双指针
 // 不可以包含重复 进行排序直接可以避免重复答案
 // 降低复杂度 利用双指针
-
-const twoSum = function (nums,start,end,target,value){
- while(start<end){
-  let sum = nums[start]+nums[end];
-  if(sum===target){
-    let result=[];
-
-  }
-
- }
-}
-
 const threeSum1 =function(nums){
   let result=[];
   const innerNum = nums.sort((a,b)=>a-b);
