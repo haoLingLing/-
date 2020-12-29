@@ -122,3 +122,5 @@ const search = function(nums,target){
 
 const nums1 = [5,1,3], target1 = 3;
 console.log(search2(nums1, target1))
+
+

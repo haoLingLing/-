@@ -9,6 +9,7 @@
  */
 
 // hash存储当前值为位置信息
+// [key,index] {3:0,4:1,5:2}  target-nums[i] O(2n) 空间复杂度  时间复杂度 O(n)
 function twoSum(nums,target){
   if (nums.length === 0) return []
   const setNums ={};
@@ -28,7 +29,7 @@ function twoSum(nums,target){
 
 }
 
-function twoSum1(nums, target){
+function twoSum1(nums, target){ // 空间复杂度  时间复杂度 O(n)
   debugger;
   const setNums = {};
   for(let i=0;i<nums.length;i++){
@@ -43,3 +44,6 @@ function twoSum1(nums, target){
 
 const nums =[2, 7, 11, 15], target = 9; 
 console.log(twoSum1(nums, target))
+
+
+// 双指针 O(n) 空间复杂度O(1)
