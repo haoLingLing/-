@@ -31,17 +31,17 @@ nums2 = [3, 4]
  空间复杂度O(m+n)
 */
 
-// var findMedianSortedArrays = function (nums1, nums2) {
-//   let len1 = nums1.length-1;
-//   let len2 =nums2.length-1;
-//   let len =len1+len2+1;
-//   while(len2>=0){
-//     nums1[len--] = nums1[len1] > nums2[len2] ? nums1[len1--] : nums2[len2--]
-//   };
-//   const median = ~~((nums1.length-1)/2);
-//   const medianNumer = nums1.length % 2 === 0 && (nums1[median] + nums1[median + 1]) / 2 || nums1[median];
-//   return medianNumer;
-// };
+var findMedianSortedArrays = function (nums1, nums2) {
+  let len1 = nums1.length-1;
+  let len2 =nums2.length-1;
+  let len =len1+len2+1;
+  while(len2>=0){
+    nums1[len--] = nums1[len1] > nums2[len2] ? nums1[len1--] : nums2[len2--]
+  };
+  const median = ~~((nums1.length-1)/2);
+  const medianNumer = nums1.length % 2 === 0 && (nums1[median] + nums1[median + 1]) / 2 || nums1[median];
+  return medianNumer;
+};
 
 
 /**
@@ -53,29 +53,29 @@ nums2 = [3, 4]
  如果是偶数 len/2 len/2+1
 */
 
-// var findMedianSortedArrays = function (nums1, nums2) {
-//   const m = nums1.length;
-//   const n = nums2.length;
-//   const len = m + n;
-//   let pA = 0, pB = 0, index = 0;
-//   let left = null, right = null;
-//   let k = len / 2;
-//   while (index <= k) {
-//     left = right;
-//     // 边界需要处理好
-//     if (pA < m && (pB >= n || nums1[pA] <= nums2[pB])) {
-//       right = nums1[pA++]
-//     } else {
-//       right = nums2[pB++];
-//     }
-//     index++;
-//   }
-//   if ((len & 1) == 0) {
-//     return (left + right) / 2
-//   } else {
-//     return right;
-//   }
-// };
+var findMedianSortedArrays1 = function (nums1, nums2) {
+  const m = nums1.length;
+  const n = nums2.length;
+  const len = m + n;
+  let pA = 0, pB = 0, index = 0;
+  let left = null, right = null;
+  let k = len / 2;
+  while (index <= k) {
+    left = right;
+    // 边界需要处理好
+    if (pA < m && (pB >= n || nums1[pA] <= nums2[pB])) {
+      right = nums1[pA++]
+    } else {
+      right = nums2[pB++];
+    }
+    index++;
+  }
+  if ((len & 1) == 0) {
+    return (left + right) / 2
+  } else {
+    return right;
+  }
+};
 
 /**
  方法三
@@ -89,7 +89,7 @@ nums2 = [3, 4]
  m+n 为奇数的时候 s=(m+n+1)/2  向下取整
  */
 
-var findMedianSortedArrays=function(nums1,nums2){
+var findMedianSortedArrays2=function(nums1,nums2){
   debugger;
   if(nums1.length>nums2.length){
     let temp = nums1;

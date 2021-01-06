@@ -1,3 +1,4 @@
+
 /**
  在排序数组中查找元素的第一个和最后一个位置
  给定一个按照升序排列的整数数组nums 和一个目标值target 找出给定目标值在数组中的开始位置和结束位置
@@ -57,13 +58,15 @@ const searchRange=(nums,target)=>{
 const  binaryfirstSearch =(nums,target)=>{
   let left = 0;right = nums.length,ans = nums.length;
   while(left<right){
-    const mid = (left + right) / 2 >>> 0;
+    const mid = (left + right) >>>1;
     if(nums[mid]<target){
       //区间 [mid+1,right]
       left = mid + 1;
-    }else{
+    } else if (nums[mid] ===target){
       // 区间 [left,mid]
       right = mid;
+    }else{
+      right = mid -1;
     }
   }
   if (nums[left] === target) {
@@ -75,19 +78,18 @@ const  binaryfirstSearch =(nums,target)=>{
 const binaryLastSearch =(nums,target)=>{
   let left = 0; right = nums.length-1, ans = nums.length;
   while(left<right){
-    const mid = (left + right) / 2 >>> 0;
+    const mid = (left + right +1) >>>1;
     if(nums[mid]>target){
       // 区间是 [left,mid-1]
-      right = mid -1
-    }else{
+      right = mid -1;
+    }else if(nums[mid]===target){
       // 区间是 [mid,right]
-      left = mid
+      left = mid;
+    }else{
+      left = mid+1;
     }
   }
-  if (nums[left] === target) {
-    return left
-  }
-  return -1;
+  return left;
 }
 
 
@@ -109,9 +111,44 @@ const searchRange1=(nums,target)=>{
 
 }
 
-// const nums = [5, 7, 7, 8, 8, 10], target = 8;
-const nums =[1],target = 1;
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange2 = function (nums, target) {
+  const leftIndex = binarySearch(nums, target, true);
+  const rightIndex = binarySearch(nums, target, false) - 1;
+  if (nums[leftIndex] === target && nums[rightIndex] === target) {
+    console.log(leftIndex, rightIndex);
+    return [leftIndex, rightIndex];
+  }
+  return [-1, -1];
+};
+
+var binarySearch = function (nums, target, lower) {
+  let left = 0;
+  let right = nums.length;
+  let flag = nums.length;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] > target || (lower && nums[mid] >= target)) {
+      right = mid - 1;
+      flag = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return flag;
+}
+
+const nums = [5, 7, 7, 8, 8, 10], target = 8;
+// const nums =[1],target = 1;
 console.log(searchRange1(nums, target))
 
 
-// 总结 二分法需要注意的是开闭区间的问题 是否会进入死循环 一般都是向下取整 >>>0  
+
+
+// 总结 二分法需要注意的是开闭区间的问题 是否会进入死循环 一般都是向下取整 >>>0 
+// 如果出现left === mid 需要将mid 取值为上取整 
+// 二分法需要注意的是 边界的处理，一不小心就会造成死循环
