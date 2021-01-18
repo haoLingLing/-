@@ -62,7 +62,6 @@ const strStr1 = (haystack, needle) =>{
   let [i,j] =[0,0];
   const next =[]; // 找到一个next 数组
   const nextfunc =(p,next)=>{
-    debugger;
     next[0]=-1;
     let [j,k] =[0,-1];
     while(j<p.length -1){
@@ -102,4 +101,32 @@ const haystack = "hello", needle = "lo";
 const haystack1 = "cabaabababc", needle1 = "ababc";
 console.log(strStr1(haystack1, needle1))
 
+
+// 空字符串 存在存储空间 是一个空集 任何一个字符串都是全集 任何一个空集都是集合的子集 即存在，所以将其设置为0 
+// 初始情况  
+// 初始化完成之后 是否需要判断 条件1 条件2 
+// 重复之前的操作  大问题 同构的小问题 
+
+// 初始化 如何操作 遇到不同的问题如何处理 重复第几步到第几步
+// 突出什么 项目 独立负责项目或者是某些模块
+
+
+/**
+ * 设计计算机原理 网络的问题
+  滚动hash 先生成
+  hash  number 平时所看见的是16禁止的比较
+  如何进行hash 比较
+  2^32  16位  上线OXFFFFFFFF 
+  4个Int
+  如何拼接 999+1=1000 计算机中 低位在前 高位在后 
+  大端和小端问题
+  取决位CPU 和操作系统
+  如何区分 数据通信 如何区分 
+  大端 16进制 转成int 
+  小端 作对比
+
+  如何扩容 
+  每一个去读取 效率比比较字符串的效率高
+
+ */
 

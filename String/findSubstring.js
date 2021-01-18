@@ -1,6 +1,6 @@
 /**
   给定一个字符串s 和一些长度相同的单词  words, 找出s中恰好可以由 words 中所有单词串联形成的子串的起始位置
-  注意子串要与words 中的单词完全匹配，中间不能有其他字符，但是不需要考虑words 中单词的串联顺序。
+  注意子串要与words 中的单词完全匹配，中间不能有其他字符，但是不需要考虑words 中单词的串联顺序。（如果有串联，则需要考虑串联顺序）
 
   示例 1：
 
@@ -61,6 +61,7 @@ var findSubstring = function (s, words) {
     let tempHashMap = { ...hashMap};
     const tempWords = s.slice(i, i + allWordsSize);
     let flag = true;
+    // 快慢指针 
     for (let j = 0; j < tempWords.length; j += wordSize){
       let tempWord = tempWords.slice(j, j + wordSize);
       // 如果没有找到 则退出本次循环
@@ -93,4 +94,16 @@ console.log(findSubstring(s1, []))
 
  /**
   substr() substring() slice()
+  快慢指针 滑动窗口
+
+  思路一
+  新招到一个词  再找下一个词 一直找到所有的词
+  慢指针向后移动的一个位置
+  时间复杂度O(n^2)
+  如何打标记，是否全部匹配完成
+
+  字符串比较
+
+  思路二：
+
   */

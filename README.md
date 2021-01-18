@@ -81,6 +81,69 @@ parseInt(1110,2)  14
 - 回溯法
 - 分支界限法
 
+
+
+数组创建一个length长度确定的数组
+内存泄漏
+
+数组 读写功能 增删改查
+计算机中操作细节 静下心来推演细节
+字典 
+对象的嵌套 不是链表
+链表中每一个节点都是单独的，不是从属关系 单链表
+k 和引用的值 指向的位置，引用的位置  而不是真是的{}
+```js
+// 这种方式不是正确的链表
+{
+  name:'a1';
+  value:{
+    name:'a2';
+    value:{
+      name:'a3'
+    }
+  }
+}
+const ListNode=(node)=>{
+  this.value= node;
+  this.head = null;
+}
+
+const node1 = new ListNode(3);
+const node2 = new ListNode(2);
+const node3 = new ListNode(0);
+const node4 = new ListNode(-4);
+
+node1.head = node2;
+```
+
+数据结构写 断链 替换数据
+头节点 尾节点 null
+首节点后面 尾节点前面 倒数第二个 第二个 需要处理的什么  边界的处理
+
+回溯 往前走一步  回溯的步数是有限的 回溯是有快慢指针的
+
+
+`需要补充的是用js  趋势线基本的数据结构`
+
+完全二叉树 和链表有什么区别么
+组合  表头和一个线性表
+
+去重 剪枝 
+
+hashMap 复杂度为O(1) 操作有限次
+
+表驱动
+先初始化表 map hashMap.set(key,value)
+hashMap get 
+key value 是一个方法 需要写好
+
+表驱动 不需要写好多if else 
+字典的方式
+
+桶排序 唱票
+
+
+
   
 
     

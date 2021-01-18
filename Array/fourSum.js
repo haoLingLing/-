@@ -2,6 +2,8 @@
   给定一个包含n个整数的数组nums 和一个目标值 target， 判断nums中是否存在4个元素，a,b,c,d 使得 a+b+c+d 的值与target 相等？找出所有满足条件且不重复的四元组
 
   注意： 
+  四元组 一旦被创建之后，不可以被修改  元 基本的 不准继续拆 meta 
+
   答案中不可以包含重复的四元组
   示例
   给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
@@ -124,3 +126,10 @@ var fourSum1 = function (nums, target) {
 
 const nums = [-2, -1, -1, 1, 1, 2, 2],target =0;
 console.log(fourSum(nums, target))
+
+/**
+ * 对数组进行排序
+ * 是什么，为什么
+ * 时间复杂度 O(n^3+nlogn)
+ * 空间复杂度 O(n) 先排序的存储空间
+ */
