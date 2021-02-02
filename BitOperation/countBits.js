@@ -18,9 +18,9 @@ const countBits=(num)=>{
   }
   let result=[0];
   for(let i=0;i<nums.length;i++){
-    if (nums[i]%2===1){
+    if (nums[i]%2===1){ // 奇数比前一个数多一个1 
       result[i]= result[i-1]+1;
-    }else{
+    }else{ // 偶数是等于 当前的数 >>1  也就是当前的数据/2
       result[i] = result[i/2]
     }
   }

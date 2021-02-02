@@ -32,7 +32,6 @@ const singleNumber1=(nums)=>{
 // A^B=C C^A=B C^B=A
 // 1^2^3^4^4^3 = 1^2
 const singleNumber=(nums)=>{
-  debugger;
   let bitmask=0;
   for(let i=0;i<nums.length;i++){
     bitmask ^= nums[i];

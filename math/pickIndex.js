@@ -26,7 +26,6 @@ class Solution{
   }
 
   pickIndex=()=>{
-    debugger;
     // 随机获取到0-1 的数据 因为概率出现的数据 为[0,1]
     let random = Math.random();
     let lower=0;
@@ -71,9 +70,6 @@ Solution.prototype.pickIndex = function () {
     }
   }
 
-  // return lo;
-
-
   if (target >= this.list[lo]) {
     return ++lo;
   } else if (target < this.list[lo]) {
@@ -93,4 +89,6 @@ Solution.prototype.pickIndex = function () {
  
   或者是使用hashMap 存储key为[0,1] 0  或者是使用二分法  
   最开始的需要将数据获取成 total 相加
+
+  抽奖概率
  */

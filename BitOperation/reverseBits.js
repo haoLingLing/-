@@ -18,7 +18,7 @@
  * @param {number} n - a positive integer
  * @return {number} - a positive integer
  */
-
+// 找到位置需要移除的位置
 var reverseBits = function (n) {
   let res = 0;
   // 整数是4 int 一个int 是8byte 所以是32 位  交换顺序
