@@ -75,68 +75,13 @@ const merge = (lists,l,r)=>{
  }
 
  // 分而治之 就是将顺序的队列 不在存在，直接将分组返回 进行一个递归  分到最小 减少顺序排序的问题 和快排的思想是一致的
-const mergeKLists1=(list)=>{
+const mergeKLists=(list)=>{
   return merge(lists,0,lists.length-1)
 }
 
-// 优先队列
-// 时间复杂度O(Nlogk) 空间复杂度O(n+k)
-const mergeKLists=(lists)=>{
-  let queue = new PriorityQueue();
-  lists.forEach(list=>{
-    if(list){
-      queue.enqueue(list,list.val)
-    }
-  })
-
-  let res = new ListNode(-1);
-  let cur = res;
-  while (!queue.isEmpty){
-    cur.next = queue.dequeue();
-    cur = cur.next;
-    if(cur.next) queue.enqueue(cur.next,cur.next.val)
-  }
-  return res.next;
-}
-
-class Node{
-  constructor(val,priority){
-    this.val = val;
-    this.priority = priority;
-  }
-}
+// 优先队列  
 
 
-class PriorityQueue{
-  constructor(){
-    this.values=[];
-  }
-
-  // 入队
-  enque(val,priority){
-    let node = new Node(val,priority);
-    this.values.push(node);
-    this.bubbleUp()
-  }
-
-  // 出队
-  dequeue(){
-
-  }
-
-  // 判断是否为空
-  isEmpty(){
-
-  }
-
-  bubbleUp(index= this.values.length -1){
-    if(index<0){
-      
-    }
-  }
-
-
-}
 
 
 
@@ -167,3 +112,6 @@ console.log(mergeKLists(lists))
   分治算法 
   如： 快排 归并排序
   */
+
+// 参考地址
+// https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/23-he-bing-kge-pai-xu-lian-biao-by-alexer-660/

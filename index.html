@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <script src='./Queue/getSkyline.js' />
+  <!-- <script src='./tree/maxDepth.js' /> -->
   <script>
     // const promise1 = Promise.reject(3);
     // const promise2 = 42;
@@ -35,6 +35,92 @@
     // console.log(promise1)
     
 
+    // const obj={a:1};
+    // function demo(obj){
+    //   // 引用地址的发生了变化，
+    //   obj.a= 2;
+    //   // 在本地新创建了一个obj 变量 又增加了一个新的指向,和传入的参数没有关系
+    //   // obj={a:3};
+    //   obj.a=4;
+    // }
+
+    // demo(obj);
+    // console.log(obj);
+
+
+    // const arr=[1,2,3,4];
+    // function demo2(arr){
+    //   arr=[4,5,6,7]
+    // }
+
+    // demo2(arr);
+    // console.log(arr)
+    
+
+  
+  //   const reverString=(num)=>{
+  //     debugger;
+  //     if(num < 10){
+  //       return num;
+  //     }else{
+  //       const tempNum = num % 10;
+  //       const intNum = num/10 >> 0; 
+  //       return `${tempNum}` + reverString(intNum)
+  //     }
+  //   }
+
+
+  // console.log(reverString(001))
+
+  const matrix=[[1,2,3],[4,5,6],[7,8,9]];
+  const matrix1=[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+  const matrix2=[[1,6,9]];
+  const reverseMatrix=(matrix)=>{
+    const row = matrix.length;
+    const column =  matrix.length>0 && matrix[0].length || 0;
+    const length = row* column;
+    let result =[];
+    // 如果是双层循环判断
+    let i =0,j=0,count=0;
+    // 在螺旋位置也就是说 r=max c=0 时候，减少一层
+    while(result.length<length){
+      debugger;
+        while(j < column - count){
+          result.push(matrix[i][j++]);
+        }
+        
+       // 右上节点
+       if(j== column-count && i==count){
+         i = i+1;
+         while(i<row-count){
+           result.push(matrix[i++][j-1]);
+         }
+       }
+
+       // 右底节点
+       if(j==column - count && i==row-count){
+          j = j-2;
+          i = i-1;
+          while (j > count) {
+            result.push(matrix[i][j--]);
+         }
+       }
+
+       // 左底节点
+       if(j==count && i== row-count - 1){
+         // count  需要加一；
+         count++;
+          while (i > count) {
+            result.push(matrix[i--][j]);
+          }
+       }
+    }
+    return result;
+  }
+
+  // console.log(reverseMatrix(matrix))
+  // console.log(reverseMatrix(matrix1))
+  console.log(reverseMatrix(matrix2))
 
   </script>
 </body>

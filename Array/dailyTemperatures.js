@@ -15,7 +15,7 @@
  */
 
 
- // 暴力解法 双指针 找到比当前元素大的数据就可以
+ // 暴力解法 双指针 找到比当前元素大的数据就可以 时间复杂度是O(n^2) 最坏的情况 是一个递减的数组 
 var dailyTemperatures1 = function (T) {
    let result =[];
    const length = T.length;
@@ -36,6 +36,9 @@ var dailyTemperatures1 = function (T) {
 };
 
 
+const dailyTemperatures=function(T){
+  
+}
 
 //  考虑使用栈来做  递减栈
 // T[i] > T[stack[stack.length - 1]]  必须有这个条件 否则如果栈中存在一个数据 但是接下来的数据不满足这个条件 就会进入死循环
